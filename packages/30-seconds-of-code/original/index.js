@@ -136,8 +136,6 @@ export const counter = (selector, start, end, step = 1, duration = 2000) => {
   return timer;
 };
 export const countOccurrences = (arr, val) => arr.reduce((a, v) => (v === val ? a + 1 : a), 0);
-export const fs = require('fs');
-const createDirIfNotExists = dir => (!fs.existsSync(dir) ? fs.mkdirSync(dir) : undefined);
 export const createElement = str => {
   const el = document.createElement('div');
   el.innerHTML = str;
@@ -449,20 +447,6 @@ export const hashBrowser = val =>
       hexes.push(('00000000' + view.getUint32(i).toString(16)).slice(-8));
     return hexes.join('');
   });
-export const crypto = require('crypto');
-const hashNode = val =>
-  new Promise(resolve =>
-    setTimeout(
-      () =>
-        resolve(
-          crypto
-            .createHash('sha256')
-            .update(val)
-            .digest('hex')
-        ),
-      0
-    )
-  );
 export const hasKey = (obj, keys) => {
   return (
     keys.length > 0 &&
@@ -667,9 +651,6 @@ export const JSONtoCSV = (arr, columns, delimiter = ',') =>
       )
     )
   ].join('\n');
-export const fs = require('fs');
-const JSONToFile = (obj, filename) =>
-  fs.writeFile(`${filename}.json`, JSON.stringify(obj, null, 2));
 export const last = arr => (arr && arr.length ? arr[arr.length - 1] : undefined);
 export const lcm = (...arr) => {
   const gcd = (x, y) => (!y ? x : gcd(y, x % y));
@@ -964,12 +945,6 @@ export const randomIntArrayInRange = (min, max, n = 1) =>
   Array.from({ length: n }, () => Math.floor(Math.random() * (max - min + 1)) + min);
 export const randomIntegerInRange = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 export const randomNumberInRange = (min, max) => Math.random() * (max - min) + min;
-export const fs = require('fs');
-const readFileLines = filename =>
-  fs
-    .readFileSync(filename)
-    .toString('UTF8')
-    .split('\n');
 export const rearg = (fn, indexes) => (...args) => fn(...indexes.map(i => args[i]));
 export const recordAnimationFrames = (callback, autoStart = true) => {
   let running = true,
@@ -1329,7 +1304,6 @@ export const uniqueElementsByRight = (arr, fn) =>
 export const uniqueSymmetricDifference = (a, b) => [
   ...new Set([...a.filter(v => !b.includes(v)), ...b.filter(v => !a.includes(v))])
 ];
-export const untildify = str => str.replace(/^~($|\/|\\)/, `${require('os').homedir()}$1`);
 export const unzip = arr =>
   arr.reduce(
     (acc, val) => (val.forEach((v, i) => acc[i].push(v)), acc),
@@ -1358,11 +1332,6 @@ export const URLJoin = (...args) =>
 export const UUIDGeneratorBrowser = () =>
   ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
     (c ^ (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))).toString(16)
-  );
-export const crypto = require('crypto');
-const UUIDGeneratorNode = () =>
-  ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, c =>
-    (c ^ (crypto.randomBytes(1)[0] & (15 >> (c / 4)))).toString(16)
   );
 export const validateNumber = n => !isNaN(parseFloat(n)) && isFinite(n) && Number(n) == n;
 export const vectorDistance = (...coords) => {
