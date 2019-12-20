@@ -1,5 +1,5 @@
 /// common
-const getType = v =>
+export const getType = v =>
   v === undefined
     ? "undefined"
     : v === null
@@ -10,14 +10,10 @@ const getType = v =>
 export const isNull = val => val === null;
 export const isSymbol = val => typeof val === "symbol";
 export const isUndefined = val => val === undefined;
-const isBoolean = val => typeof val === "boolean";
+export const isBoolean = val => typeof val === "boolean";
+export const isNumber = val => typeof val === "number" && val === val;
 /**
  * Returns true if the specified value is null or undefined, false otherwise.
  * @param {*} val
  */
 export const isNil = val => val === undefined || val === null;
-
-/// number
-export const isEven = num => num % 2 === 0;
-
-const isDivisible = (dividend, divisor) => dividend % divisor === 0;
