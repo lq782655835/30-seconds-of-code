@@ -1,0 +1,15 @@
+{
+  "name": "root",
+  "private": true,
+  "scripts": {
+    "precommit": "lint-staged",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prettier": "prettier --write \"packages/**/*.js\"",
+    "lint": "eslint packages/**/*.js",
+    "publish-l": "lerna publish --conventional-commits --independent"
+  },
+  "devDependencies": {
+    "lerna": "^3.13.1",
+    "prettier": "^1.19.1"
+  }
+}
