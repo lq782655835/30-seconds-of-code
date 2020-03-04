@@ -1,4 +1,3 @@
-1. number
-1. type js基础类型判断
-1. browser 浏览器相关
-1. utility 常用工具函数
+original是fork自[30-seconds-of-code-Zh-CN](https://github.com/ConardLi/30-seconds-of-code-Zh-CN)，在原有基础上，添加extend作为扩展。
+
+_module是根据orignial里的模块类型，划分各种文件。目前只是方便查看，**不打包进入最终源码**
